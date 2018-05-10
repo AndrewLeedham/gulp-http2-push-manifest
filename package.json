@@ -1,0 +1,28 @@
+{
+    "name": "gulp-http2-push-manifest",
+    "version": "1.0.0",
+    "description": "A wrapper around http2-push-manifest for Gulp.",
+    "main": "./index.js",
+    "files": [
+        "index.js"
+    ],
+    "author": "Andrew Leedham",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AndrewLeedham/gulp-http2-push-manifest"
+    },
+    "scripts": {
+        "test": "gulp example --cwd ./example",
+        "setup": "yarn install && yarn install --cwd ./example && yarn link && yarn link gulp-http2-push-manifest --cwd ./example"
+    },
+    "keywords": [
+        "gulpplugin",
+        "http2-push-manifest"
+    ],
+    "dependencies": {
+        "http2-push-manifest": "^1.0.1",
+        "plugin-error": "^1.0.1",
+        "through2": "^2.0.3"
+    }
+}
