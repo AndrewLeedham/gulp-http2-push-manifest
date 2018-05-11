@@ -1,6 +1,6 @@
 {
     "name": "gulp-http2-push-manifest",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A wrapper around http2-push-manifest for Gulp.",
     "main": "./index.js",
     "files": [
