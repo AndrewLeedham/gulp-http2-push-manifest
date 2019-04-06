@@ -14,14 +14,54 @@
     },
     "scripts": {
         "test": "gulp example --cwd ./example",
-        "setup": "yarn install && yarn link && yarn link gulp-http2-push-manifest"
+        "setup": "yarn install && yarn link && yarn link gulp-http2-push-manifest",
+        "deploy": "semantic-release"
     },
     "keywords": [
         "gulpplugin",
         "http2-push-manifest"
     ],
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
+        }
+    },
+    "release": {
+        "plugins": [
+            [
+                "@semantic-release/commit-analyzer",
+                {
+                    "releaseRules": [
+                        {
+                            "type": "refactor",
+                            "release": "patch"
+                        }
+                    ]
+                }
+            ],
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/changelog",
+            "@semantic-release/npm",
+            "@semantic-release/github",
+            "@semantic-release/git"
+        ]
+    },
     "devDependencies": {
-        "gulp": "^3.9.1"
+        "gulp": "^3.9.1",
+        "@commitlint/cli": "^7.5.2",
+        "@commitlint/config-conventional": "^7.5.0",
+        "@semantic-release/changelog": "^3.0.2",
+        "@semantic-release/commit-analyzer": "^6.1.0",
+        "@semantic-release/git": "^7.0.8",
+        "@semantic-release/github": "^5.2.10",
+        "@semantic-release/npm": "^5.1.4",
+        "@semantic-release/release-notes-generator": "^7.1.4",
+        "semantic-release": "^15.13.3"
     },
     "dependencies": {
         "http2-push-manifest": "^1.0.1",
