@@ -79,6 +79,8 @@
   },
   "resolutions": {
     "natives": "^1.1.6",
-    "gulp-cli": "AndrewLeedham/gulp-cli#master"
+    "gulp-cli": "AndrewLeedham/gulp-cli#master",
+    "lodash": "^4.17.11",
+    "minimatch": "^3.0.4"
   }
 }
