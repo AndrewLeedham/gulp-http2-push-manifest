@@ -13,9 +13,10 @@
         "url": "https://github.com/AndrewLeedham/gulp-http2-push-manifest"
     },
     "scripts": {
-        "test": "gulp example --cwd ./example",
+        "test": "jest",
         "setup": "yarn install && yarn link && yarn link gulp-http2-push-manifest",
-        "deploy": "semantic-release"
+        "deploy": "semantic-release",
+        "gulp": "gulp"
     },
     "keywords": [
         "gulpplugin",
@@ -52,7 +53,6 @@
         ]
     },
     "devDependencies": {
-        "gulp": "^3.9.1",
         "@commitlint/cli": "^7.5.2",
         "@commitlint/config-conventional": "^7.5.0",
         "@semantic-release/changelog": "^3.0.2",
@@ -61,11 +61,20 @@
         "@semantic-release/github": "^5.2.10",
         "@semantic-release/npm": "^5.1.4",
         "@semantic-release/release-notes-generator": "^7.1.4",
+        "gulp-3.9.1": "npm:gulp@3.9.1",
+        "gulp-4.0.0": "npm:gulp@4.0.0",
+        "husky": "^1.3.1",
+        "jest": "^24.7.1",
+        "jest-shell-matchers": "^1.0.2",
         "semantic-release": "^15.13.3"
     },
     "dependencies": {
         "http2-push-manifest": "^1.0.1",
         "plugin-error": "^1.0.1",
         "through2": "^2.0.3"
+    },
+    "resolutions": {
+        "natives": "^1.1.6",
+        "gulp-cli": "AndrewLeedham/gulp-cli#master"
     }
 }
