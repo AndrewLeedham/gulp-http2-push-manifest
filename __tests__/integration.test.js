@@ -9,8 +9,6 @@ const starting = (task) => `${date} Starting '${task}'\\.\\.\\.`;
 const finished = (task) => `${date} Finished '${task}' after ${time}`;
 const done = 'Done in [0-9]{1,2}\\.[0-9]{1,3}s\\.';
 
-jest.setTimeout(10000);
-
 beforeAll(() => {
   shellMatchers();
 });
