@@ -1,3 +1,3 @@
-(function(){
-    // js example
+(function() {
+  // js example
 })();

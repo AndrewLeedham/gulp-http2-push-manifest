@@ -17,7 +17,7 @@
     "setup": "yarn install && yarn link && yarn link gulp-http2-push-manifest",
     "deploy": "semantic-release",
     "gulp": "gulp",
-    "prettier": "prettier ./*.{js,json,yml}",
+    "prettier": "prettier ./**/*.{js,json,yml}",
     "lint": "yarn run prettier --check",
     "format": "yarn run prettier --write"
   },
@@ -25,6 +25,10 @@
     "gulpplugin",
     "http2-push-manifest"
   ],
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always"
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
