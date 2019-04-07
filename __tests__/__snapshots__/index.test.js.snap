@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`0 manifest resources - verbose 1`] = `"{}"`;
+
+exports[`0 manifest resources 1`] = `"{}"`;
+
+exports[`1 manifest resources - verbose 1`] = `
+"{
+  \\"/styles.css\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"style\\"
+  }
+}"
+`;
+
+exports[`1 manifest resources 1`] = `
+"{
+  \\"/styles.css\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"style\\"
+  }
+}"
+`;
+
+exports[`2 manifest resources - verbose 1`] = `
+"{
+  \\"/styles.css\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"style\\"
+  },
+  \\"/script.js\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"script\\"
+  }
+}"
+`;
+
+exports[`2 manifest resources 1`] = `
+"{
+  \\"/styles.css\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"style\\"
+  },
+  \\"/script.js\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"script\\"
+  }
+}"
+`;
+
+exports[`custom manifest name 1`] = `
+"{
+  \\"/styles.css\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"style\\"
+  },
+  \\"/script.js\\": {
+    \\"weight\\": 1,
+    \\"type\\": \\"script\\"
+  }
+}"
+`;
