@@ -14,54 +14,42 @@ beforeAll(() => {
   shellMatchers();
 });
 
-test('running with gulp 3.9.1', async () => {
-  const options = { env: { GULP_MODULE_NAME: `gulp-3.9.1` } };
-  const input = [
-    'yarn',
-    [
-      'run',
-      `gulp`,
-      'example',
-      '--gulpfile',
-      `./__tests__/__fixtures__/GulpFile.3.9.1.js`
-    ],
-    options
-  ];
-  const output = {
-    code: 0,
-    signal: '',
-    stdout: new RegExp(
-      `^${yarn('example')}\\s*${working}\\s*${using}\\s*${starting(
-        'example'
-      )}\\s*${finished('example')}\\s*${done}\\s*$`
-    )
-  };
-  await expect(input).toHaveMatchingSpawnOutput(output);
-});
+const versions = [
+  {
+    version: '3.9.1',
+    match: `^${yarn('example')}\\s*${working}\\s*${using}\\s*${starting(
+      'example'
+    )}\\s*${finished('example')}\\s*${done}\\s*$`
+  },
+  {
+    version: '4.0.0',
+    match: `^${yarn('example')}\\s*${working}\\s*${using}\\s*${starting(
+      'example'
+    )}\\s*${starting('generateManifest')}\\s*${finished(
+      'generateManifest'
+    )}\\s*${finished('example')}\\s*${done}\\s*$`
+  }
+];
 
-test('running with gulp 4.0.0', async () => {
-  const options = { env: { GULP_MODULE_NAME: `gulp-4.0.0` } };
-  const input = [
-    'yarn',
-    [
-      'run',
-      `gulp`,
-      'example',
-      '--gulpfile',
-      `./__tests__/__fixtures__/GulpFile.4.0.0.js`
-    ],
-    options
-  ];
-  const output = {
-    code: 0,
-    signal: '',
-    stdout: new RegExp(
-      `^${yarn('example')}\\s*${working}\\s*${using}\\s*${starting(
-        'example'
-      )}\\s*${starting('generateManifest')}\\s*${finished(
-        'generateManifest'
-      )}\\s*${finished('example')}\\s*${done}\\s*$`
-    )
-  };
-  await expect(input).toHaveMatchingSpawnOutput(output);
-});
+for (const { version, match } of versions) {
+  test(`running with gulp ${version}`, async () => {
+    const options = { env: { GULP_MODULE_NAME: `gulp-${version}` } };
+    const input = [
+      'yarn',
+      [
+        'run',
+        'gulp',
+        'example',
+        '--gulpfile',
+        `./__tests__/__fixtures__/GulpFile.${version}.js`
+      ],
+      options
+    ];
+    const output = {
+      code: 0,
+      signal: '',
+      stdout: new RegExp(match)
+    };
+    await expect(input).toHaveMatchingSpawnOutput(output);
+  });
+}
