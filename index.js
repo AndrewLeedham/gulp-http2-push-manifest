@@ -1,6 +1,7 @@
 const through = require('through2');
-const PluginError = require('plugin-error');
 const path = require('path');
+const Manifest = require('http2-push-manifest/lib/manifest');
+const fs = require('fs');
 
 const PLUGIN_NAME = 'gulp-http2-push-manifest';
 const DEFAULT_OPTIONS = {
@@ -9,7 +10,6 @@ const DEFAULT_OPTIONS = {
 };
 const blocked = ['log', 'warn'];
 
-var Manifest;
 var original = {};
 
 function namespace(func, verbose) {
@@ -37,17 +37,18 @@ function unblock(verbose) {
   }
 }
 
-// https://github.com/GoogleChromeLabs/http2-push-manifest/blob/master/bin/http2-push-manifest#L109
-function writeManifest(manifest, opt_content) {
-  manifest.write(opt_content);
-}
-
+let jsonOutput = {};
 // Adapted from https://github.com/GoogleChromeLabs/http2-push-manifest/blob/master/bin/http2-push-manifest#L114
 function generateManifest(manifestName, files, singleFile) {
   if (!files.length) {
-    let manifest = new Manifest({ name: manifestName });
-    writeManifest(manifest, jsonOutput);
-    return;
+    return new Promise((resolve) => {
+      let manifest = new Manifest({ name: manifestName });
+      let fileContent = jsonOutput || manifest.fileContent;
+      fs.writeFileSync(manifest.name, JSON.stringify(fileContent, null, 2));
+      resolve();
+    }).catch((err) => {
+      console.warn(`${PLUGIN_NAME} ${err}`);
+    });
   }
 
   let f = files[0];
@@ -70,7 +71,8 @@ function generateManifest(manifestName, files, singleFile) {
     .generate()
     .then((output) => {
       if (singleFile) {
-        writeManifest(manifest);
+        let fileContent = manifest.fileContent;
+        fs.writeFileSync(manifest.name, JSON.stringify(fileContent, null, 2));
         return;
       }
 
@@ -78,7 +80,7 @@ function generateManifest(manifestName, files, singleFile) {
 
       // Remove processed file from list and proceed with next.
       files.shift();
-      generateManifest(manifestName, files, singleFile);
+      return generateManifest(manifestName, files, singleFile);
     })
     .catch((err) => {
       console.warn(`${PLUGIN_NAME} ${err}`);
@@ -110,11 +112,11 @@ function gulpHttp2PushManifest(options) {
 
   function flushFunction(callback) {
     block(options.verbose);
-    Manifest = require('http2-push-manifest/lib/manifest');
+
     generateManifest(options.manifestName, files, files.length < 2).then(
       function() {
         unblock(options.verbose);
-        callback();
+        return callback();
       }
     );
   }
