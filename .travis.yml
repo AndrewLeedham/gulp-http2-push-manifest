@@ -12,6 +12,10 @@ script:
   - yarn lint
   - yarn test
 
+branches:
+  only:
+    - master
+
 deploy:
   name: 'Publish to npm'
   provider: script
