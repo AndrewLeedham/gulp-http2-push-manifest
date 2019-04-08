@@ -1,6 +1,9 @@
 [![travisci status][travisci-badge]][travisci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license-link] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-relase-link]
 
 # gulp-http2-push-manifest
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/AndrewLeedham/gulp-http2-push-manifest.svg)](https://greenkeeper.io/)
+
 Generate a push manifest from a stream of html files. Wraps [http2-push-manifest][http2pm-link] into a [Gulp][gulp-link] plugin.
 
 # Usage
