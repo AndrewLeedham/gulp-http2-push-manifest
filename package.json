@@ -1,31 +1,93 @@
 {
-    "name": "gulp-http2-push-manifest",
-    "version": "1.0.1",
-    "description": "A wrapper around http2-push-manifest for Gulp.",
-    "main": "./index.js",
-    "files": [
-        "index.js"
-    ],
-    "author": "Andrew Leedham",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AndrewLeedham/gulp-http2-push-manifest"
-    },
-    "scripts": {
-        "test": "gulp example --cwd ./example",
-        "setup": "yarn install && yarn link && yarn link gulp-http2-push-manifest"
-    },
-    "keywords": [
-        "gulpplugin",
-        "http2-push-manifest"
-    ],
-    "devDependencies": {
-        "gulp": "^3.9.1"
-    },
-    "dependencies": {
-        "http2-push-manifest": "^1.0.1",
-        "plugin-error": "^1.0.1",
-        "through2": "^2.0.3"
+  "name": "gulp-http2-push-manifest",
+  "version": "1.0.1",
+  "description": "A wrapper around http2-push-manifest for Gulp.",
+  "main": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "author": "Andrew Leedham",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndrewLeedham/gulp-http2-push-manifest"
+  },
+  "scripts": {
+    "test": "jest",
+    "setup": "yarn install && yarn link && yarn link gulp-http2-push-manifest",
+    "deploy": "semantic-release",
+    "gulp": "gulp",
+    "prettier": "prettier ./**/*.{js,json,yml}",
+    "lint": "yarn run prettier --check",
+    "format": "yarn run prettier --write"
+  },
+  "keywords": [
+    "gulpplugin",
+    "http2-push-manifest"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
     }
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {
+              "type": "refactor",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "__fixtures__"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/git": "^7.0.8",
+    "@semantic-release/github": "^5.2.10",
+    "@semantic-release/npm": "^5.1.4",
+    "@semantic-release/release-notes-generator": "^7.1.4",
+    "gulp": "^4.0.0",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "jest-shell-matchers": "^1.0.2",
+    "prettier": "^1.16.4",
+    "semantic-release": "^15.13.3"
+  },
+  "dependencies": {
+    "http2-push-manifest": "^1.0.1",
+    "plugin-error": "^1.0.1",
+    "through2": "^2.0.3"
+  },
+  "resolutions": {
+    "natives": "^1.1.6",
+    "lodash": "^4.17.11",
+    "minimatch": "^3.0.4"
+  }
 }
