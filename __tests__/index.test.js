@@ -1,4 +1,4 @@
-const gulp = require('gulp-4.0.0');
+const gulp = require('gulp');
 const path = require('path');
 const fs = require('fs');
 const through = require('through2');
