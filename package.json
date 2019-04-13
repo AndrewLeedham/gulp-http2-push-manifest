@@ -88,6 +88,7 @@
   "resolutions": {
     "natives": "^1.1.6",
     "lodash": "^4.17.11",
-    "minimatch": "^3.0.4"
+    "minimatch": "^3.0.4",
+    "tar": "^4.4.2"
   }
 }
