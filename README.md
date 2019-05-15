@@ -1,8 +1,8 @@
-[![travisci status][travisci-badge]][travisci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license-link] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-relase-link] [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-link]
-
 # gulp-http2-push-manifest
 
-Generate a push manifest from a stream of html files. Wraps [http2-push-manifest][http2pm-link] into a [Gulp][gulp-link] plugin.
+> Generate a push manifest from a stream of html files. Wraps [http2-push-manifest][http2pm-link] into a [Gulp][gulp-link] plugin.
+
+[![travisci status][travisci-badge]][travisci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license-link] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-release-link] [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-link]
 
 # Usage
 gulp-http2-push-manifest provides a simple wrapper around [http2-push-manifest][http2pm-link] which generates a `push_manifest.json` file, listing static resources found on a web page.
@@ -25,7 +25,7 @@ gulp.src("./src/*.html")
 ---
 [LICENSE][license-link] | [CHANGELOG][changelog-link] | [ISSUES][issues-link]
 
-[travisci-badge]: https://flat.badgen.net/travis/AndrewLeedham/gulp-http2-push-manifest
+[travisci-badge]: https://flat.badgen.net/travis/AndrewLeedham/gulp-http2-push-manifest/master
 [travisci-link]: https://travis-ci.org/AndrewLeedham/gulp-http2-push-manifest
 
 [npm-badge]: https://flat.badgen.net/npm/v/gulp-http2-push-manifest?color=cyan
@@ -37,7 +37,7 @@ gulp.src("./src/*.html")
 [commit-style-link]: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines
 
 [semantic-release-badge]: https://flat.badgen.net/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80/semantic%20release/e10079
-[semantic-relase-link]: https://github.com/semantic-release/semantic-release
+[semantic-release-link]: https://github.com/semantic-release/semantic-release
 
 [greenkeeper-badge]: https://badges.greenkeeper.io/AndrewLeedham/gulp-http2-push-manifest.svg?style=flat-square
 [greenkeeper-link]: https://greenkeeper.io/
