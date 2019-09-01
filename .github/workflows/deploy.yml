@@ -18,7 +18,7 @@ jobs:
       - run: yarn test
 
   publish-npm:
-    needs: [install, lint, test]
+    needs: verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
