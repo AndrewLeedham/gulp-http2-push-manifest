@@ -2,7 +2,7 @@
 
 > Generate a push manifest from a stream of html files. Wraps [http2-push-manifest][http2pm-link] into a [Gulp][gulp-link] plugin.
 
-[![travisci status][travisci-badge]][travisci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license-link] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-release-link] [![Dependabot Status][dependabot-badge]][dependabot-link]
+[![GitHub Actions Status][ci-badge]][ci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license-link] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-release-link] [![Dependabot Status][dependabot-badge]][dependabot-link]
 
 # Usage
 gulp-http2-push-manifest provides a simple wrapper around [http2-push-manifest][http2pm-link] which generates a `push_manifest.json` file, listing static resources found on a web page.
@@ -25,8 +25,8 @@ gulp.src("./src/*.html")
 ---
 [LICENSE][license-link] | [CHANGELOG][changelog-link] | [ISSUES][issues-link]
 
-[travisci-badge]: https://flat.badgen.net/travis/AndrewLeedham/gulp-http2-push-manifest/master
-[travisci-link]: https://travis-ci.org/AndrewLeedham/gulp-http2-push-manifest
+[ci-badge]: https://flat.badgen.net/github/status/AndrewLeedham/gulp-http2-push-manifest/master/Github%20Actions
+[ci-link]: https://github.com/AndrewLeedham/gulp-http2-push-manifest/actions
 
 [npm-badge]: https://flat.badgen.net/npm/v/gulp-http2-push-manifest?color=cyan
 [npm-link]: https://www.npmjs.com/package/gulp-http2-push-manifest
