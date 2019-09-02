@@ -41,7 +41,29 @@
   },
   "release": {
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "chore",
+              "scope": "deps",
+              "subject": "/\\[security\\].*/",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "scope": "readme",
+              "release": "patch"
+            }
+          ],
+          "noteKeywords": [
+            "BREAKING CHANGE",
+            "[security]"
+          ]
+        }
+      ],
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/npm",
@@ -55,7 +77,7 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.5.2",
+    "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/commit-analyzer": "^6.1.0",
@@ -64,7 +86,7 @@
     "@semantic-release/npm": "^5.1.4",
     "@semantic-release/release-notes-generator": "^7.1.4",
     "gulp": "^4.0.0",
-    "husky": "^2.0.0",
+    "husky": "^3.0.5",
     "jest": "^24.7.1",
     "jest-shell-matchers": "^1.0.2",
     "prettier": "^1.16.4",
